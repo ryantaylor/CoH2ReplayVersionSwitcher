@@ -45,6 +45,8 @@ namespace CoH2ReplayVersionSwitcher
                 ReplayStream.Write(versionCode, 0, 4);
                 ReplayStream.Dispose();
                 resultLabel.Text = "Success!";
+                replayName.Text = "";
+                convertButton.Enabled = false;
             }
             catch (Exception ex)
             {
