@@ -41,7 +41,7 @@ namespace CoH2ReplayVersionSwitcher
             {
                 File.Copy(dialog.FileName, resultFile);
                 ReplayStream = File.Open(resultFile, FileMode.Open);
-                byte[] versionCode = new byte[] { 0, 0, 0x4d, 0x28 };
+                byte[] versionCode = new byte[] { 0, 0, 0xb0, 0x28 };
                 ReplayStream.Write(versionCode, 0, 4);
                 ReplayStream.Dispose();
                 resultLabel.Text = "Success!";
