@@ -15,6 +15,7 @@ namespace CoH2ReplayVersionSwitcher
     {
         Stream ReplayStream;
         OpenFileDialog dialog;
+        string directory = @"C:\";
         public mainForm()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace CoH2ReplayVersionSwitcher
             dialog = new OpenFileDialog();
             dialog.Title = "Select a replay file";
             dialog.Filter = "CoH2 Replay Files|*.rec";
-            dialog.InitialDirectory = @"C:\";
+            dialog.InitialDirectory = directory;
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -36,7 +37,9 @@ namespace CoH2ReplayVersionSwitcher
 
         private void convertButton_Click(object sender, EventArgs e)
         {
-            String resultFile = Path.GetPathRoot(dialog.FileName) + Path.GetFileNameWithoutExtension(dialog.FileName) + "_converted.rec";
+            String resultFile = Path.GetDirectoryName(dialog.FileName) + "\\" + Path.GetFileNameWithoutExtension(dialog.FileName) + "_converted.rec";
+            directory = @"" + Path.GetDirectoryName(dialog.FileName) + "\\";
+            dialog.InitialDirectory = directory;
             try
             {
                 File.Copy(dialog.FileName, resultFile);

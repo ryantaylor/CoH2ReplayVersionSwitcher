@@ -84,7 +84,7 @@
             this.Controls.Add(this.replayName);
             this.Controls.Add(this.selectFile);
             this.Name = "mainForm";
-            this.Text = "CoH2 Replay Version Switcher 0.1b";
+            this.Text = "CoH2 Replay Version Switcher 0.13b";
             this.ResumeLayout(false);
             this.PerformLayout();
 
